@@ -19,5 +19,5 @@ int main()
     if(flag==0)
         printf("%d is found in %d position",num,i+1);
     else
-        printf("Element not found");
+        printf("%d is not found");
 }
