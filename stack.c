@@ -11,7 +11,7 @@ void push(int item)
         st[top]=item;
     }
 }
-int pop()
+void pop()
 {
     if(top==-1)
         printf("Stack Underflow\n");
@@ -20,13 +20,18 @@ int pop()
         item=st[top];
         top--;
     }
-    return(item);
+    printf("The popped element: %d",item);
 }
 void display()
 {
     int i;
+    if(top>-1)
+    {
     for(i=top;i>=0;i--)
         printf("%d\n",st[i]);
+    }
+    else
+        printf("The stack is empty\n");
 }
 int main()
 {
@@ -36,7 +41,7 @@ int main()
     do
     {
         printf("Enter your choice\n");
-        printf("Choice:\n1.Push\t2.Pop\t3.Exit\n");
+        printf("Choice:\n1.Push\t2.Pop\t3.Display\t4.Exit\n");
         scanf("%d",&choice);
         switch(choice)
         {
@@ -47,11 +52,14 @@ int main()
                 display();
                 break;
             case 2:
-                item=pop();
-                printf("%d\n",item);
+                pop();
                 break;
             case 3:
+                display();
+                break;
+            case 4:
+                printf("Exited\n");
                 break;
         }
-    } while(choice!=3);
+    } while(choice<4);
 }
