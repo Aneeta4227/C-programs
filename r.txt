@@ -413,3 +413,32 @@ points(kmeans_result$centers[, c(1, 3)], col = 1:k, pch = 8, cex = 2)
 2     5.006000    3.428000     1.462000    0.246000
 3     6.850000    3.073684     5.742105    2.071053
 
+
+#Exp No: 19
+#Author: Aneeta Jose
+#Program: Hierarchical clustering
+
+library(cluster)
+data(mtcars)
+selected_data <- mtcars[, c("mpg", "disp", "hp", "wt")]
+hierarchical_result <- hclust(dist(selected_data), method = "complete")
+plot(hierarchical_result, main = "Hierarchical Clustering Dendrogram", xlab = "Index", ylab = "Distance", sub = NULL)
+num_clusters <- 3 
+clusters <- cutree(hierarchical_result, k = num_clusters)
+print(clusters)
+
+> source("~/Aneeta/hierarchical.R")
+          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive   Hornet Sportabout 
+                  1                   1                   1                   2                   3 
+            Valiant          Duster 360           Merc 240D            Merc 230            Merc 280 
+                  2                   3                   1                   1                   1 
+          Merc 280C          Merc 450SE          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
+                  1                   2                   2                   2                   3 
+Lincoln Continental   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+                  3                   3                   1                   1                   1 
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28    Pontiac Firebird 
+                  1                   2                   2                   3                   3 
+          Fiat X1-9       Porsche 914-2        Lotus Europa      Ford Pantera L        Ferrari Dino 
+                  1                   1                   1                   3                   1 
+      Maserati Bora          Volvo 142E 
+                  3                   1 
