@@ -392,3 +392,24 @@ Covariance :
 [1] 1.274315
 Correlation :
 [1] 0.8717538
+
+#Exp No: 18
+#Author: Aneeta Jose
+#Program: K-means clustering
+
+library(cluster)
+data(iris)
+selected_data <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+k <- 3
+kmeans_result <- kmeans(selected_data, centers = k)
+cluster_assignments <- kmeans_result$cluster
+print(kmeans_result$centers)
+plot(selected_data[, c(1, 3)], col = cluster_assignments, main = "K-means Clustering (Iris Dataset)")
+points(kmeans_result$centers[, c(1, 3)], col = 1:k, pch = 8, cex = 2)
+
+> source("~/Aneeta/kmeans.R")
+  Sepal.Length Sepal.Width Petal.Length Petal.Width
+1     5.901613    2.748387     4.393548    1.433871
+2     5.006000    3.428000     1.462000    0.246000
+3     6.850000    3.073684     5.742105    2.071053
+
