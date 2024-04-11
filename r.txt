@@ -377,12 +377,14 @@ Accuracy: 0.9733333
 #Program: Variance, Covariance, Correlation
 
 data("iris")
+sample1 = iris$Sepal.Length
+sample2 = iris$Petal.Length
 cat("Variance :\n")
-print(var(iris[,1:4]))
+print(var(sample1, sample2))
 cat("Covariance :\n")
-print(cov(iris[,1:4]))
+print(cov(sample1, sample2))
 cat("Correlation :\n")
-print(cor(iris[,1:4]))
+print(cor(sample1, sample2))
 
 
 > source("~/Aneeta/statistics.R")
